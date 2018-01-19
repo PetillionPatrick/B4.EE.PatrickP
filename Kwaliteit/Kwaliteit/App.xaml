@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:Kwaliteit.Pages"
+             xmlns:conv="clr-namespace:Kwaliteit.Converters"
+             x:Class="Kwaliteit.App">
+	<Application.Resources>
+        <ResourceDictionary>
+            <!-- Converters -->
+            <conv:ItemTappedEventArgsConverter x:Key="ItemTappedEventArgsConv" />
+
+            <!-- Common Colors -->
+            <Color x:Key="ColorPrimary">#2196F3</Color>
+            <Color x:Key="ColorSecundary">#1976D2</Color>
+            <Color x:Key="ColorError">#f46842</Color>
+            <Color x:Key="ColorAccent">#ffffff</Color>
+
+            <!-- On Platform Resources -->
+            <OnPlatform x:Key="DefaultThickness" x:TypeArguments="Thickness">
+                <On Platform="iOS" Value="15"></On>
+                <On Platform="Android" Value="20"></On>
+                <On Platform="Windows" Value="10"></On>
+            </OnPlatform>
+            <OnPlatform x:Key="ErrorMessageFontSize" x:TypeArguments="NamedSize">
+                <On Platform="iOS, Android" Value="Small"></On>
+                <On Platform="Windows" Value="Micro"></On>
+            </OnPlatform>
+
+            <!-- Explicit Styles -->
+            <Style x:Key="MainLayout" TargetType="StackLayout">
+                <Setter Property="Margin" Value="{StaticResource DefaultThickness}" />
+            </Style>
+            <Style x:Key="PrimaryButton" TargetType="Button">
+                <Setter Property="TextColor" Value="{StaticResource ColorAccent}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource ColorPrimary}" />
+                <Setter Property="WidthRequest" Value="200"/>
+            </Style>
+            <Style x:Key="ErrorMessage" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource ColorError}" />
+                <Setter Property="FontSize" Value="{StaticResource ErrorMessageFontSize}" />
+                <Setter Property="Margin" Value="2,-5,7,0" />
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style x:Key="List" TargetType="ListView">
+                <Setter Property="HasUnevenRows" Value="True"></Setter>
+                <Setter Property="SeparatorColor" Value="Black"></Setter>
+            </Style>
+            <Style x:Key="ListStackLayout" TargetType="StackLayout">
+                <Setter Property="HeightRequest" Value="100"></Setter>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
+                <Setter Property="BackgroundColor" Value="LightBlue"></Setter>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
+                <Setter Property="Margin" Value="1,0,1,0" />
+                <Setter Property="WidthRequest" Value="9999" />
+            </Style>
+            <Style x:Key="ListLabel" TargetType="Label">
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
+                <Setter Property="FontSize" Value="Large"></Setter>
+            </Style>
+            <!-- Global, Implicit (= valid for ALL controls of this TargetType) -->
+            <Style TargetType="views:BusyView">
+                <Setter Property="BackgroundColor" Value="#ffffff" />
+                <Setter Property="IsVisible" Value="False" />
+                <Setter Property="AbsoluteLayout.LayoutFlags" Value="All" />
+                <Setter Property="AbsoluteLayout.LayoutBounds" Value="0,0,1,1" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:Kwaliteit.Pages"
+             xmlns:bhv="clr-namespace:Kwaliteit.Behaviors"
+             x:Name="page"
+             x:Class="Kwaliteit.Pages.MaakOperatorPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Operator nummer"></Label>
+                <Entry Text="{Binding OperatorNummer}" Placeholder="Vul nummer in."></Entry>
+                <Label Text="{Binding OperatorNummerError}" IsVisible="{Binding OperatorNummerErrorVisible}" Style="{StaticResource ErrorMessage}"></Label>
+                <Label Text="Operator naam"></Label>
+                <Entry Text="{Binding OperatorNaam}" Placeholder="Vul naam in."></Entry>
+                <Label Text="{Binding OperatorNaamError}" IsVisible="{Binding OperatorNaamErrorVisible}" Style="{StaticResource ErrorMessage}"></Label>
+                <Label Text="Technisch"></Label>
+                <Switch IsToggled="{Binding Techinsch}"></Switch>
+                <Button Text="Voeg operator toe" Command="{Binding SaveOperatorCommand}" HorizontalOptions="End" Margin="0,20,0,0" Style="{StaticResource PrimaryButton}"></Button>
+                <ListView ItemsSource="{Binding Operatoren}" Style="{StaticResource List}">
+                    <ListView.Behaviors>
+                        <bhv:EventToCommandBehavior EventName="ItemTapped" Command="{Binding OpenEditOperatorCommand}" EventArgsConverter="{StaticResource ItemTappedEventArgsConv}"></bhv:EventToCommandBehavior>
+                    </ListView.Behaviors>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem Command="{Binding BindingContext.DeleteOperatorCommand, Source={x:Reference page}}" CommandParameter="{Binding .}" Text="Delete" IsDestructive="True"></MenuItem>
+                                </ViewCell.ContextActions>
+                                <StackLayout Style="{StaticResource ListStackLayout}">
+                                    <Label Text="{Binding Nummer}" Style="{StaticResource ListLabel}"></Label>
+                                    <Label Text="{Binding Naam}" Style="{StaticResource ListLabel}"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kwaliteit.Pages.MainPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Style="{StaticResource MainLayout}">
+                <Button Text="Overzicht" Command="{Binding OpenOverzichtCommand}" HorizontalOptions="Center" Style="{StaticResource PrimaryButton}"></Button>
+                <Button Text="Update status" Command="{Binding OpenUpdateStatusCommand}" HorizontalOptions="Center" Style="{StaticResource PrimaryButton}"></Button>
+                <Button Text="Afkeur" Command="{Binding OpenAfkeurCommand}" HorizontalOptions="Center" Style="{StaticResource PrimaryButton}"></Button>
+                <Button Text="Settings" Command="{Binding OpenBeheerCommand}" HorizontalOptions="Center" Style="{StaticResource PrimaryButton}"></Button>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

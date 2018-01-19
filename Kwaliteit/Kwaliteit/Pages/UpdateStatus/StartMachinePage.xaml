@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kwaliteit.Pages.StartMachinePage">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout>
+            <Label Text="Vul Partnummer in"></Label>
+            <Entry Text="{Binding PartNummer}" Placeholder="Vul naam in."></Entry>
+                <Label Text="{Binding PartNummerError}" IsVisible="{Binding PartNummerErrorVisible}" Style="{StaticResource ErrorMessage}"></Label>
+            <Label Text="Vul Moldnummer in"></Label>
+            <Entry Text="{Binding MoldNummer}" Placeholder="Vul naam in."></Entry>
+                <Label Text="{Binding MoldNummerError}" IsVisible="{Binding MoldNummerErrorVisible}" Style="{StaticResource ErrorMessage}"></Label>
+            <Label Text="Vul Ordernummer in"></Label>
+            <Entry Text="{Binding OrderNummer}" Placeholder="Vul naam in."></Entry>
+                <Label Text="{Binding OrderNummerError}" IsVisible="{Binding OrderNummerErrorVisible}" Style="{StaticResource ErrorMessage}"></Label>
+            <Label Text="Vul License tag in"></Label>
+            <Entry Text="{Binding UnitNummer}" Placeholder="Vul naam in."></Entry>
+                <Label Text="{Binding UnitNummerError}" IsVisible="{Binding UnitNummerErrorVisible}" Style="{StaticResource ErrorMessage}"></Label>
+            <Label Text="Vul Archiefdoos in"></Label>
+            <Entry Text="{Binding ArchiefNummer}" Placeholder="Vul naam in."></Entry>
+                <Label Text="{Binding ArchiefNummerError}" IsVisible="{Binding ArchiefNummerErrorVisible}" Style="{StaticResource ErrorMessage}"></Label>
+            <Label Text="Vul Reparatie opdrachtnr. in"></Label>
+            <Entry Text="{Binding ReparatieNummer}" Placeholder="Vul naam in."></Entry>
+                <Label Text="{Binding ReparatieNummerError}" IsVisible="{Binding ReparatieNummerErrorVisible}" Style="{StaticResource ErrorMessage}"></Label>
+            <Label Text="Zijn de gecontroleerde delen ok"></Label>
+            <Switch IsToggled="{Binding DelenControle}"></Switch>
+            <Label Text="Is het een proefspuiting"></Label>
+            <Switch IsToggled="{Binding ProefspuitingControle}"></Switch>
+            <Label Text="Opmerkingen"></Label>
+            <Entry Text="{Binding Opmerking}" Placeholder="Vul naam in."></Entry>
+                <Button Text="Produktie start opslaan" Command="{Binding SaveStartCommand}" HorizontalOptions="End" Margin="0,20,0,0" Style="{StaticResource PrimaryButton}"></Button>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

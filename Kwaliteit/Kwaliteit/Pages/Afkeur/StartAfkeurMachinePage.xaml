@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:views="clr-namespace:Kwaliteit.Pages"
+             xmlns:bhv="clr-namespace:Kwaliteit.Behaviors"
+             x:Name="page"
+             x:Class="Kwaliteit.Pages.Afkeur.StartAfkeurMachinePage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <ListView ItemsSource="{Binding Machines}" Style="{StaticResource List}">
+                    <ListView.Behaviors>
+                        <bhv:EventToCommandBehavior EventName="ItemTapped" Command="{Binding OpenMachinePageCommand}" EventArgsConverter="{StaticResource ItemTappedEventArgsConv}"></bhv:EventToCommandBehavior>
+                    </ListView.Behaviors>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Style="{StaticResource ListStackLayout}">
+                                    <Label Text="{Binding Naam}" Style="{StaticResource ListLabel}"></Label>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

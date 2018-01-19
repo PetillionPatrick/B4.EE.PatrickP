@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kwaliteit.Pages.EditMachinePage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Machine Naam"></Label>
+                <Entry Text="{Binding MachineNaam}" Placeholder="Vul titel in."></Entry>
+                <Label Text="{Binding MachineNaamError}" IsVisible="{Binding MachineNaamErrorVisible}" Style="{StaticResource ErrorMessage}"></Label>
+                <Button Text="Edit Machine" Command="{Binding SaveMachineCommand}" HorizontalOptions="End" Margin="0,20,0,0" Style="{StaticResource PrimaryButton}"></Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

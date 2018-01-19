@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:Kwaliteit.Pages"
+             xmlns:bhv="clr-namespace:Kwaliteit.Behaviors"
+             x:Name="page"
+             x:Class="Kwaliteit.Pages.MaakBeukPage">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout>
+            <Label Text="Beuk Naam"></Label>
+            <Entry Text="{Binding BeukNaam}" Placeholder="Vul naam in."></Entry>
+                <Label Text="{Binding BeukNaamError}" IsVisible="{Binding BeukNaamErrorVisible}" Style="{StaticResource ErrorMessage}"></Label>
+                <Button Text="Voeg beuk toe" Command="{Binding SaveBeukCommand}" HorizontalOptions="End" Margin="0,20,0,0" Style="{StaticResource PrimaryButton}"></Button>
+                <ListView ItemsSource="{Binding Beuken}" Style="{StaticResource List}">
+                    <ListView.Behaviors>
+                        <bhv:EventToCommandBehavior EventName="ItemTapped" Command="{Binding OpenEditBeukCommand}" EventArgsConverter="{StaticResource ItemTappedEventArgsConv}"></bhv:EventToCommandBehavior>
+                    </ListView.Behaviors>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem Command="{Binding BindingContext.DeleteBeukCommand, Source={x:Reference page}}" CommandParameter="{Binding .}" Text="Delete" IsDestructive="True"></MenuItem>
+                                </ViewCell.ContextActions>
+                                <StackLayout Style="{StaticResource ListStackLayout}">
+                                    <Label Text="{Binding Naam}" Style="{StaticResource ListLabel}"></Label>
+                                    <ContentView></ContentView>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                       
+                    </ListView.ItemTemplate>
+
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

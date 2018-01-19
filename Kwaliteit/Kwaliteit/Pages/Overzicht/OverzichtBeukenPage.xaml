@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:Kwaliteit.Pages"
+             xmlns:bhv="clr-namespace:Kwaliteit.Behaviors"
+             x:Name="page"
+             Title="Beuken Overzicht"
+             x:Class="Kwaliteit.Pages.OverzichtBeukenPage">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <ScrollView AbsoluteLayout.LayoutFlags="All"
+                        AbsoluteLayout.LayoutBounds="0,0,1,1">
+        <StackLayout>
+                    <ListView ItemsSource="{Binding Beuken}" Style="{StaticResource List}">
+                <ListView.Behaviors>
+                    <bhv:EventToCommandBehavior EventName="ItemTapped" Command="{Binding OpenBeukCommand}" EventArgsConverter="{StaticResource ItemTappedEventArgsConv}"></bhv:EventToCommandBehavior>
+                </ListView.Behaviors>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                                    <StackLayout Style="{StaticResource ListStackLayout}">
+                                        <Label Text="{Binding Naam}" Style="{StaticResource ListLabel}"></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        </ScrollView>
+            <views:BusyView IsVisible="{Binding IsBusy}" />
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

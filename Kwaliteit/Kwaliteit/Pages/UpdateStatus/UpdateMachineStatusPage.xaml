@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kwaliteit.Pages.StartProduktie.UpdateMachineStatusPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Button Text="Produktiestart" Command="{Binding OpenStartCommand}" HorizontalOptions="Center" Style="{StaticResource PrimaryButton}"></Button>
+                <Button Text="Reparatie" Command="{Binding OpenReparatieCommand}" HorizontalOptions="Center" Style="{StaticResource PrimaryButton}"></Button>
+                <Button Text="Einde produktie" Command="{Binding OpenEindeCommand}" HorizontalOptions="Center" Style="{StaticResource PrimaryButton}"></Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

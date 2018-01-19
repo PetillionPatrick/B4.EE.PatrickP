@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Kwaliteit.Pages.EditOperatorPage">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout>
+            <Label Text="Operator nummer"></Label>
+            <Entry Text="{Binding OperatorNummer}" Placeholder="Vul nummer in."></Entry>
+                <Label Text="{Binding OperatorNummerError}" IsVisible="{Binding OperatorNummerErrorVisible}" Style="{StaticResource ErrorMessage}"></Label>
+            <Label Text="Operator naam"></Label>
+            <Entry Text="{Binding OperatorNaam}" Placeholder="Vul naam in."></Entry>
+                <Label Text="{Binding OperatorNaamError}" IsVisible="{Binding OperatorNaamErrorVisible}" Style="{StaticResource ErrorMessage}"></Label>
+            <Label Text="Technisch"></Label>
+            <Switch IsToggled="{Binding Techinsch}"></Switch>
+                <Button Text="Edit operator" Command="{Binding SaveOperatorCommand}" HorizontalOptions="End" Margin="0,20,0,0" Style="{StaticResource PrimaryButton}"></Button>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
